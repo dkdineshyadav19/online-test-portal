@@ -1,0 +1,54 @@
+<div class="rules d-flex flex-column  justify-content-center align-items-center mt-3 p-3">
+        <div class="userheading">
+            <h2 class="text-success "> WELCOME <em>{{username}} </em> </h2> 
+        </div>
+        <div class="instruction">
+          
+                <ol>
+                    <li>InCorrect Question Give you 0 point.</li>
+                    <li>The quiz will contain 10 question each carry 1 marks.</li>
+                    <li>Refershing the Page will reset the quiz</li>
+                </ol>
+            
+            </div>
+    </div>
+    
+<div class="container p-3 m-3  " *ngIf="i <10"> 
+    <h2>
+        <strong>{{data[i].ques}}</strong>
+    </h2>
+    <form action="">
+
+        <div class="form-check">
+            <input class="form-check-input" [(ngModel)]="yourAnswer" value="a" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <label class="form-check-label" for="flexRadioDefault1">
+                {{data[i].a}}
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" [(ngModel)]="yourAnswer" value="b"  type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+            <label class="form-check-label" for="flexRadioDefault2">
+                {{data[i].b}} 
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" [(ngModel)]="yourAnswer" value="c"  type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+            <label class="form-check-label" for="flexRadioDefault2">
+                {{data[i].c}} 
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" [(ngModel)]="yourAnswer" value="d"  type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+            <label class="form-check-label" for="flexRadioDefault2">
+                {{data[i].d}} 
+            </label>
+        </div>
+        <h5>You selected Option :<span class="text-warning"> {{yourAnswer}} </span></h5>
+        <button class="btn btn-primary btn-lg" (click)="nextques()" id="btndis" [disabled]="dis" type="submit">Next Question</button>
+    </form>
+</div>
+<div class="bg-dark container d-flex flex-column justify-content-center  align-items-center p-3" *ngIf="i == 10" >
+    <h2 class="display-2 text-success">YOUR SCORE</h2>
+    <h1 class="display-1  text-light"> {{totalMarks}}/10</h1>
+    <h3 class="display-3 text-success">In JavaScript Quiz</h3>
+</div>
